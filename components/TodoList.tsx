@@ -46,6 +46,7 @@ export default function TodoList() {
 
   const completedCount = todos.filter((todo) => todo.completed).length;
   const totalCount = todos.length;
+  const percentage = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
@@ -70,7 +71,7 @@ export default function TodoList() {
       {/* 進捗状況 */}
       {totalCount > 0 && (
         <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-          進捗: {completedCount} / {totalCount} 完了
+          進捗: {completedCount} / {totalCount} 完了 ({percentage}%)
         </div>
       )}
 
